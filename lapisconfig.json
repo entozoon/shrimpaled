@@ -1,0 +1,8 @@
+{
+	"browserSync": {
+		"proxy": "shrimpaled.dev",
+		"watch": [
+			"./dist/**/*"
+		]
+	}
+}
