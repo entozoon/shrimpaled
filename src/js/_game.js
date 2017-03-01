@@ -1,17 +1,29 @@
+let hero;
+
 const setup = () => {
 	createCanvas(window.innerWidth, window.innerHeight);
 	frameRate(60);
+
+	hero = new Hero();
 };
 
 const mouseMoved = () => {
+	hero.setPosition({
+		x: mouseX,
+		y: mouseY
+	});
 };
+
 const touchMoved = () => {
+	hero.setPosition({
+		x: mouseX,
+		y: mouseY
+	});
 };
 
 const draw = () => {
 	background(0);
 
-	fill(255, 255, 255);
-	ellipse(mouseX, mouseY, 10, 10);
-	noStroke();
+	hero.update();
+	hero.render();
 };
