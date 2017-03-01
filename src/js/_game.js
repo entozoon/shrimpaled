@@ -32,6 +32,5 @@ const draw = () => {
 		food.render();
 	});
 
-	hero.update();
 	hero.render();
 };
