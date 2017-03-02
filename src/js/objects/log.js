@@ -3,10 +3,11 @@ class Log {
 		this.log = [];
 		this.limitMin = limitMin;
 		this.limitMax = limitMax;
+		this.simple = true; // always simple, screw the mad popping
 	}
 
 	setSimple() {
-		this.simple = true;
+		//this.simple = true;
 	}
 
 	add(value) {
@@ -19,7 +20,7 @@ class Log {
 			}
 			return;
 		}
-
+		/*
 		// Pop the first bunch, depending on dt
 		// i.e. if using a slow phone, pop a fuckload
 		//let dtSlip = dtLog.getAverage() - (1000 / framesPerSecond);
@@ -36,6 +37,7 @@ class Log {
 		if (this.getLength() > this.limitMin) {
 			this.log.splice(0, popAmount);
 		}
+		*/
 	}
 
 	getAverage() {

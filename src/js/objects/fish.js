@@ -54,15 +54,16 @@ class Fish {
 		noStroke();
 		*/
 
+		/*
 		fill(255, 255, 0);
 		ellipse(this.log.getLog(0).x, this.log.getLog(0).y, 20, 20);
 		noStroke();
-		/*
+		*/
 		let averageSlipFromNoLag = Math.floor(dtLog.getAverage() - (1000 / framesPerSecond));
 
 		// Use the first item in array (oldest)
 		// but as it starts to lag, get a more recent one
-		this.logRefIndex = averageSlipFromNoLag;
+		this.logRefIndex = averageSlipFromNoLag * 2;
 
 		this.logRefIndex = Math.floor(averageSlipFromNoLag);
 
@@ -76,6 +77,5 @@ class Fish {
 			ellipse(this.log.getLog(this.logRefIndex).x, this.log.getLog(this.logRefIndex).y, 20, 20);
 			noStroke();
 		}
-		*/
 	}
 }
