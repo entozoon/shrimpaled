@@ -1,1 +1,16 @@
-body{padding:0;margin:0;overflow:hidden}canvas{width:100%;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:none}
+body {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+canvas {
+  width: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: none;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0MsV0FBVztFQUNYLFVBQVU7RUFDVixpQkFBaUI7Q0FDakI7O0FBQ0Q7RUFDQyxZQUFZO0VBQ1osMEJBQWtCO0tBQWxCLHVCQUFrQjtNQUFsQixzQkFBa0I7VUFBbEIsa0JBQWtCO0VBQ2xCLGFBQWE7Q0FDYiIsImZpbGUiOiJhcHAuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYm9keSB7XHJcblx0cGFkZGluZzogMDtcclxuXHRtYXJnaW46IDA7XHJcblx0b3ZlcmZsb3c6IGhpZGRlbjtcclxufVxyXG5jYW52YXMge1xyXG5cdHdpZHRoOiAxMDAlO1xyXG5cdHVzZXItc2VsZWN0OiBub25lO1xyXG5cdGN1cnNvcjogbm9uZTtcclxufVxyXG4iXX0= */

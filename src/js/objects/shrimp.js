@@ -1,12 +1,12 @@
 class Shrimp {
 	constructor() {
 		this.angle = Math.random() * 2 * Math.PI;
-		this.speed = Math.random() * 0.01 + 0.005;
+		this.speed = Math.random() * 0.001 + 0.01;
 	}
 
 	update(dt) {
-		this.position.x += Math.sin(this.angle) * dt * this.speed;
-		this.position.y += Math.sin(this.angle) * dt * this.speed;
+		this.position.x += Math.sin(this.angle) * this.speed * dt;
+		this.position.y += Math.sin(this.angle) * this.speed * dt;
 	}
 
 	render() {

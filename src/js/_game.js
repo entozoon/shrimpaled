@@ -1,14 +1,12 @@
-let t = 0,
-	dt = 0,
-	hero,
+let hero,
 	foods = [];
 
 const setup = () => {
 	createCanvas(window.innerWidth, window.innerHeight);
-	frameRate(60);
+	frameRate(frameRate);
 
 	hero = new Hero();
-	for (let i = 0; i < 20; i++) {
+	for (let i = 0; i < 200; i++) {
 		foods.push(new Food());
 	}
 };
@@ -28,9 +26,9 @@ const touchMoved = () => {
 };
 
 const draw = () => {
-	dt = millis() - t;
-	t += dt;
-	//console.log(Math.round(dt) + ' / ' + Math.round(t) + 'ms');
+	time();
+
+	hero.movementTest(t);
 
 	background(0);
 
@@ -41,4 +39,10 @@ const draw = () => {
 
 	hero.update(dt); // should this be in an interval.. or..
 	hero.render();
+
+	// Debugging
+	fill(255, 255, 255);
+	text('dt: ' + Math.round(dt), 10, 20);
+	//text('dtFactor: ' + Math.round(dtFactor * 100) / 100, 10, 40);
+	//text('dtSlip: ' + Math.round(dtSlip * 100) / 100, 10, 60);
 };
