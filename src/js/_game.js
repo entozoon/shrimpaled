@@ -43,6 +43,7 @@ const draw = () => {
 	// Debugging
 	fill(255, 255, 255);
 	text('dt: ' + Math.round(dt), 10, 20);
+	text('logRefIndex: ' + Math.round(hero.getLogRefIndex()), 10, 40);
 	//text('dtFactor: ' + Math.round(dtFactor * 100) / 100, 10, 40);
 	//text('dtSlip: ' + Math.round(dtSlip * 100) / 100, 10, 60);
 };

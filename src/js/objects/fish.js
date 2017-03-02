@@ -1,34 +1,20 @@
 class Fish {
 	constructor() {
 		this.position = {}; // always current
-		this.log = [];
-		this.logLimit = 100;
+		this.log = new Log(100);
+		this.logRefIndex = 0;
 	}
 
 	setPosition(position) {
 		this.position = position;
 	}
 
+	getLogRefIndex() {
+		return this.logRefIndex;
+	}
+
 	update(dt) {
-		this.log.push(this.position);
-		// Pop the first
-		if (this.log.length > this.logLimit) {
-			this.log.splice(0, 1);
-		}
-		/*
-		// Pop the first bunch, depending on dt
-		// i.e. if using a slow phone, pop a fuckload
-		if (this.log.length > this.logLimit) {
-			let popAmount = Math.ceil(dt * 0.5);
-		if (this.log.length > this.logLimit) {
-			let popAmount = Math.ceil(dt * 0.5);
-			if (popAmount > this.log.length) {
-				popAmount = this.log.length - 1;
-			}
-			console.log(popAmount);
-			this.log.splice(0, popAmount);
-		}
-		*/
+		this.log.add(this.position);
 	}
 
 	movementTest(t) {
@@ -41,7 +27,7 @@ class Fish {
 	render() {
 		// Debugs
 		fill(255, 0, 255);
-		this.log.map(position => {
+		this.log.getLog().map(position => {
 			ellipse(position.x, position.y, 10, 10);
 			noStroke();
 		});
@@ -59,11 +45,32 @@ class Fish {
 		// Log reference point
 		// If dt is low, we can look further in the past
 		// (move this to update())
-		let logRefIndex = Math.floor(dt/4);
-		logRefIndex = constrain(logRefIndex, 0, this.log.length - 1);
-		//console.log(logRefIndex);
+		/*
+		this.logRefIndex = Math.floor(dt/4);
+		this.logRefIndex = constrain(this.logRefIndex, 0, this.log.length - 1);
+		//console.log(this.logRefIndex);
 		fill(255, 255, 0);
-		ellipse(this.log[logRefIndex].x, this.log[logRefIndex].y, 20, 20);
+		ellipse(this.log[this.logRefIndex].x, this.log[this.logRefIndex].y, 20, 20);
 		noStroke();
+		*/
+
+		let averageSlipFromNoLag = Math.floor(dtLog.getAverage() - (1000 / framesPerSecond));
+
+		// Use the first item in array (oldest)
+		// but as it starts to lag, get a more recent one
+		this.logRefIndex = averageSlipFromNoLag;
+
+		this.logRefIndex = Math.floor(averageSlipFromNoLag);
+
+		// Limit to using 5th most recent, as 0 would be fucky
+		this.logRefIndex = constrain(this.logRefIndex, 5, this.log.getLength() - 1);
+
+		// Might not exist in first few seconds
+		if (this.logRefIndex < this.log.getLength()) {
+			console.log(this.logRefIndex);
+			fill(255, 255, 0);
+			ellipse(this.log.getLog(this.logRefIndex).x, this.log.getLog(this.logRefIndex).y, 20, 20);
+			noStroke();
+		}
 	}
 }

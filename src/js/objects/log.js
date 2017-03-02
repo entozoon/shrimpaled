@@ -2,7 +2,6 @@ class Log {
 	constructor(limit) {
 		this.log = [];
 		this.limit = limit;
-		this.average = 0;
 	}
 
 	add(value) {
@@ -13,19 +12,28 @@ class Log {
 		}
 	}
 
-	calcAverage() {
-		this.average = this.log.reduce((previous, accumulator) => {
+	getAverage() {
+		let average = this.log.reduce((previous, accumulator) => {
 			return previous + accumulator;
 		});
-		this.average /= this.log.length;
-	}
-
-	getAverage() {
-		this.calcAverage();
-		return this.average;
+		average /= this.log.length;
+		return average;
 	}
 
 	getCurrent() {
-		return this.log.slice(-1);
+		//return this.log.slice(-1);
+		return this.getLog(this.getLength() - 1);
+	}
+
+	getLog(i) {
+		if (i != null) {
+			return this.log[i];
+		} else {
+			return this.log;
+		}
+	}
+
+	getLength() {
+		return this.log.length;
 	}
 }
