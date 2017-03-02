@@ -1,4 +1,6 @@
-let hero,
+let t = 0,
+	dt = 0,
+	hero,
 	foods = [];
 
 const setup = () => {
@@ -26,11 +28,17 @@ const touchMoved = () => {
 };
 
 const draw = () => {
+	dt = millis() - t;
+	t += dt;
+	//console.log(Math.round(dt) + ' / ' + Math.round(t) + 'ms');
+
 	background(0);
 
 	foods.map(food => {
+		food.update(dt);
 		food.render();
 	});
 
+	hero.update(dt); // should this be in an interval.. or..
 	hero.render();
 };
