@@ -1,14 +1,40 @@
 class Log {
-	constructor(limit) {
+	constructor(limitMin, limitMax) {
 		this.log = [];
-		this.limit = limit;
+		this.limitMin = limitMin;
+		this.limitMax = limitMax;
+	}
+
+	setSimple() {
+		this.simple = true;
 	}
 
 	add(value) {
 		this.log.push(value);
-		// Pop the first
-		if (this.log.length > this.limit) {
-			this.log.splice(0, 1);
+
+		if (this.simple) {
+			// Pop the first
+			if (this.log.length > this.limitMax) {
+				this.log.splice(0, 1);
+			}
+			return;
+		}
+
+		// Pop the first bunch, depending on dt
+		// i.e. if using a slow phone, pop a fuckload
+		//let dtSlip = dtLog.getAverage() - (1000 / framesPerSecond);
+		let popAmount = Math.round(dtSlip * 1);
+
+		if (this.getLength() > this.limitMax) {
+			popAmount = constrain(popAmount, 1, this.getLength() - 1); // 1 -> ?
+		} else {
+			popAmount = constrain(popAmount, 0, this.getLength() - 1); // 0 -> ?
+		}
+
+		console.log('popAmount: ' + popAmount + ' dtSlip: ' + dtSlip);
+
+		if (this.getLength() > this.limitMin) {
+			this.log.splice(0, popAmount);
 		}
 	}
 

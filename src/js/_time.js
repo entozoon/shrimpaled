@@ -1,9 +1,11 @@
 let framesPerSecond = 60,
 	t = 0,
 	dt = 0,
-	dtLog = new Log(200),
+	dtLog = new Log(100, 400),
 	dtFactor = 0,
 	dtSlip = 0;
+
+dtLog.setSimple();
 
 const time = () => {
 	// Delta between renders
@@ -24,10 +26,11 @@ const time = () => {
 	/*
 	// Delta as a factor (0 full speed, 0.5 half..)
 	dtFactor = 1 - ((1000 / framesPerSecond) / dt); // 60 fps has minimum dt of 16.66
+	*/
 
-	dtSlip = dt - (1000 / framesPerSecond);
+	dtSlip = dtLog.getAverage() - (1000 / framesPerSecond);
 	if (dtSlip < 0) {
 		dtSlip = 0;
 	}
-	*/
+	//console.log(Math.round(dtSlip * 100) / 100);
 };

@@ -43,7 +43,9 @@ const draw = () => {
 	// Debugging
 	fill(255, 255, 255);
 	text('dt: ' + Math.round(dt), 10, 20);
-	text('logRefIndex: ' + Math.round(hero.getLogRefIndex()), 10, 40);
+	text('avSlip: ' + Math.floor(dtLog.getAverage() - (1000 / framesPerSecond)), 10, 40);
+	text('logRefIndex: ' + Math.round(hero.getLogRefIndex()), 10, 60);
+	text('dtLog.getAverage: ' + Math.round(dtLog.getAverage()), 10, 80);
 	//text('dtFactor: ' + Math.round(dtFactor * 100) / 100, 10, 40);
 	//text('dtSlip: ' + Math.round(dtSlip * 100) / 100, 10, 60);
 };

@@ -1,7 +1,7 @@
 class Fish {
 	constructor() {
 		this.position = {}; // always current
-		this.log = new Log(100);
+		this.log = new Log(20, 100);
 		this.logRefIndex = 0;
 	}
 
@@ -54,6 +54,10 @@ class Fish {
 		noStroke();
 		*/
 
+		fill(255, 255, 0);
+		ellipse(this.log.getLog(0).x, this.log.getLog(0).y, 20, 20);
+		noStroke();
+		/*
 		let averageSlipFromNoLag = Math.floor(dtLog.getAverage() - (1000 / framesPerSecond));
 
 		// Use the first item in array (oldest)
@@ -67,10 +71,11 @@ class Fish {
 
 		// Might not exist in first few seconds
 		if (this.logRefIndex < this.log.getLength()) {
-			console.log(this.logRefIndex);
+			//console.log(this.logRefIndex);
 			fill(255, 255, 0);
 			ellipse(this.log.getLog(this.logRefIndex).x, this.log.getLog(this.logRefIndex).y, 20, 20);
 			noStroke();
 		}
+		*/
 	}
 }
