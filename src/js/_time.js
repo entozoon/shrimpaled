@@ -1,6 +1,7 @@
 let framesPerSecond = 60,
 	t = 0,
 	dt = 0,
+	dtLog = new Log(200),
 	dtFactor = 0,
 	dtSlip = 0;
 
@@ -11,6 +12,10 @@ const time = () => {
 	if (dt < (1000 / framesPerSecond)) {
 		dt = (1000 / framesPerSecond);
 	}
+	dtLog.add(dt);
+
+	// Delta average (as it fluctuates like a motherflucker)
+	//console.log(dtLog.getAverage());
 
 	// Time since start
 	t += dt;
