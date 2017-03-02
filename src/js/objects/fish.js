@@ -25,6 +25,7 @@ class Fish {
 	}
 
 	render() {
+		/*
 		// Debugs
 		fill(255, 0, 255);
 		this.log.getLog().map(position => {
@@ -41,6 +42,10 @@ class Fish {
 		fill(255, 255, 255);
 		ellipse(this.position.x, this.position.y, 20, 20);
 		noStroke();
+		*/
+
+
+
 
 		// Log reference point
 		// If dt is low, we can look further in the past
@@ -59,6 +64,9 @@ class Fish {
 		ellipse(this.log.getLog(0).x, this.log.getLog(0).y, 20, 20);
 		noStroke();
 		*/
+
+
+		/*
 		let averageSlipFromNoLag = Math.floor(dtLog.getAverage() - (1000 / framesPerSecond));
 
 		// Use the first item in array (oldest)
@@ -77,5 +85,6 @@ class Fish {
 			ellipse(this.log.getLog(this.logRefIndex).x, this.log.getLog(this.logRefIndex).y, 20, 20);
 			noStroke();
 		}
+		*/
 	}
 }

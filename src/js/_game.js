@@ -1,6 +1,44 @@
-let hero,
+let game,
+	hero,
 	foods = [];
 
+window.onload = function() {
+	gameStart = true;
+	game = new Phaser.Game(
+		game.width,
+		game.height,
+		//Phaser.AUTO,
+		Phaser.CANVAS, // force canvas (as oppose to webgl, which fucks up on my home comp)
+		'game',
+		{
+			preload: preload,
+			create:  create,
+			update:  update,
+			render:  render
+		},
+		true // transparent
+	);
+}
+
+const preload = () => {
+	// Images..
+}
+
+const create = () => {
+	circle = new Phaser.Circle(game.world.centerX, 100,64);
+}
+
+const update = () => {
+}
+
+const render = () => {
+	game.debug.geom(circle,'#cfffff');
+	game.debug.text('Diameter : '+circle.diameter,50,200);
+	game.debug.text('Circumference : '+circle.circumference(),50,230);
+}
+
+
+/*
 const setup = () => {
 	createCanvas(window.innerWidth, window.innerHeight);
 	frameRate(frameRate);
@@ -49,3 +87,4 @@ const draw = () => {
 	//text('dtFactor: ' + Math.round(dtFactor * 100) / 100, 10, 40);
 	//text('dtSlip: ' + Math.round(dtSlip * 100) / 100, 10, 60);
 };
+*/

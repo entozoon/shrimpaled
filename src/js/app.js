@@ -1,4 +1,6 @@
-/*=include ../../node_modules/p5/lib/p5.js */
+/*=include ../../node_modules/phaser-ce/build/custom/pixi.js */
+/*=include ../../node_modules/phaser-ce/build/custom/p2.js */
+/*=include ../../node_modules/phaser-ce/build/custom/phaser-split.js */
 // Don't just glob these as they must be ordered correctly!
 /*=include objects/log.js */
 /*=include objects/shrimp.js */
