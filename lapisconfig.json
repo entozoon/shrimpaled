@@ -4,5 +4,26 @@
 		"watch": [
 			"./dist/**/*"
 		]
-	}
+	},
+	"js": [
+		{
+			"watch": [
+				"src/js/**/*.js"
+			],
+			"src": "src/js/app.js",
+			"dest": "./dist/js",
+			"filename": "app.js"
+		},
+		{
+			"watch": [
+				"src/js/**/*.js"
+			],
+			"src": "src/js/phaser.js",
+			"dest": "./dist/js",
+			"filename": "phaser.js",
+			"modes": {
+				"convertES6": false
+			}
+		}
+	]
 }

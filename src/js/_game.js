@@ -1,9 +1,12 @@
-let game,
+let game = {
+	width: 200,
+	height: 200
+	},
 	hero,
-	foods = [];
+	foods = [],
+	circle;
 
 window.onload = function() {
-	gameStart = true;
 	game = new Phaser.Game(
 		game.width,
 		game.height,
@@ -18,24 +21,24 @@ window.onload = function() {
 		},
 		true // transparent
 	);
-}
+};
 
 const preload = () => {
 	// Images..
-}
+};
 
 const create = () => {
 	circle = new Phaser.Circle(game.world.centerX, 100,64);
-}
+};
 
 const update = () => {
-}
+};
 
 const render = () => {
 	game.debug.geom(circle,'#cfffff');
 	game.debug.text('Diameter : '+circle.diameter,50,200);
 	game.debug.text('Circumference : '+circle.circumference(),50,230);
-}
+};
 
 
 /*
