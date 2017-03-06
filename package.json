@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "lapis-compiler": "^1.6.0",
+    "lapis-compiler": "^1.6.1",
     "phaser-ce": "^2.7.3"
   }
 }
