@@ -1,10 +1,10 @@
 let game = {
-	width: 200,
-	height: 200
+		width: 200,
+		height: 200
 	},
+	graphics,
 	hero,
-	foods = [],
-	circle;
+	foods = [];
 
 window.onload = function() {
 	game = new Phaser.Game(
@@ -28,16 +28,50 @@ const preload = () => {
 };
 
 const create = () => {
-	circle = new Phaser.Circle(game.world.centerX, 100,64);
+	game.scale.scaleMode = Phaser.ScaleManager.RESIZE;
+	game.scale.parentIsWindow = true;
+	graphics = game.add.graphics(0, 0);
+
+	for (let i = 0; i < 200; i++) {
+		foods.push(new Food());
+	}
+
+	//console.log(game);
+	setTimeout(function() {
+		console.log('game: ' + game.width + ' x ' + game.height);
+		console.log('game.world: ' + game.world.width + ' x ' + game.world.height);
+	}, 1000);
 };
 
 const update = () => {
+	foods.map(food => {
+		food.update(dt);
+	});
 };
 
 const render = () => {
+	// Clear
+	graphics.clear();
+
+	// Bg
+	graphics.beginFill(0xFFAA00, 1);
+	graphics.drawRect(
+		0,
+		0,
+		game.width,
+		game.height
+	);
+	graphics.endFill();
+
+	// Food
+	foods.map(food => {
+		food.render();
+	});
+	/*
 	game.debug.geom(circle,'#cfffff');
 	game.debug.text('Diameter : '+circle.diameter,50,200);
 	game.debug.text('Circumference : '+circle.circumference(),50,230);
+	*/
 };
 
 
