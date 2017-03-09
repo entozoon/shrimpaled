@@ -16,7 +16,7 @@
 		},
 		{
 			"watch": [
-				"src/js/**/*.js"
+				"src/js/phaser.js"
 			],
 			"src": "src/js/phaser.js",
 			"dest": "./dist/js",
